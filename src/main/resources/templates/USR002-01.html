@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>(USR002)User Update</title>
+<link rel="stylesheet" type="text/css"
+	th:href="@{/resources/css/base.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/resources/css/container.css}" />
+<script type="text/javascript"
+	th:src="@{/resources/js/accordion-menu.js}"></script>
+<script type="text/javascript" th:src="@{/resources/js/general.js}"></script>
+<script type="text/javascript">
+	window.onload = function() {
+		menu();
+	}
+</script>
+</head>
+<body class="main_body">
+	<div th:insert="header :: header"></div>
+
+	<div id="container">
+		<div id="left_menu">
+			<!-- menu html code exist the menu function of general.js -->
+		</div>
+		<div id="main_contents">
+			<div id="contents">
+				<h3>User Update</h3>
+				<label id="errormsg" th:text="${Error}"></label><br /> <label
+					style="color: blue" th:text="${Success}"></label><br />
+
+				<form name="registerForm" th:action="updateUser" method="post"
+					th:object="${uBean}" enctype="multipart/form-data">
+					<table class="tableForm">
+						<tr>
+							<td class="tblSingleLabel">User ID *</td>
+							<td class="tblSingleInput"><input type="text" id="txtUserId"
+								class="txt_popup" readonly="readonly" th:field="*{id}" /> <label
+								th:if="${#fields.hasErrors('id')}" th:errors="*{id}"
+								style="color: red;">Error</label></td>
+						</tr>
+						<tr>
+							<td class="tblSingleLabel">User Name</td>
+							<td class="tblSingleInput"><input type="text"
+								class="txtlong_popup" id="txtUserName"  th:field="*{name}" />
+								 <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"style="color: red;">Error</label></td>
+						</tr>
+
+						<tr>
+							<td class="tblSingleLabel">Password *</td>
+							<td class="tblSingleInput"><input type="password"
+								class="txtlong_popup" id="txtUserName"  th:field="*{password}" />
+								<label th:if="${#fields.hasErrors('password')}" th:errors="*{password}"style="color: red;">Error</label>
+							</td>
+						</tr>
+						<tr>
+							<td class="tblSingleLabel">Confirm Password *</td>
+							<td class="tblSingleInput"><input type="password"
+								class="txtlong_popup" id="txtUserName"  th:field="*{confirm}" />
+								<label th:if="${#fields.hasErrors('confirm')}" th:errors="*{confirm}"style="color: red;">Error</label>
+								</td>
+						</tr>
+						<tr>
+							<td class="tblSingleLabel">Photo *</td>
+							<td class="tblSingleInput"><input type="file" accept="image/*"
+								class="txtlong_popup" id="txtUserName" name="img" />
+								<span th:text="${fileError}"></span></td>
+
+						</tr>
+					</table>
+					<br /> <input type="submit" value="Update" class="button"
+						th:onclick="javascript:update()" /> <input type="button" value="Back"
+						class="button" th:onclick="location.href='/setupUser'" />
+				</form>
+
+				<br />
+				<br />
+				<br />
+			</div>
+		</div>
+
+	</div>
+
+	<div class="footer">
+		<span>Copyright &#169; ACE Inspiration 2016</span>
+	</div>
+</body>
+</html>

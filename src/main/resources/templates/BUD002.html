@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>(BUD002)Student Register</title>
+<link rel="stylesheet" type="text/css"
+	th:href="@{/resources/css/base.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/resources/css/container.css}" />
+<script type="text/javascript"
+	th:src="@{/resources/js/accordion-menu.js}"></script>
+<script type="text/javascript" th:src="@{/resources/js/general.js}"></script>
+<script type="text/javascript">
+	window.onload = function() {
+		menu();
+	}
+</script>
+</head>
+<body class="main_body">
+
+	<div th:insert="header :: header"></div>
+
+	<div id="container">
+		<div id="left_menu">
+			<!-- menu html code exist the menu function of general.js -->
+		</div>
+		<div id="main_contents">
+			<div id="contents">
+				<div class="search_form">
+					<h3>Student Register</h3>
+					<label id="errormsg" th:text="${Error}"></label><br /> 
+					<!-- <label id="errormsg" style="color: red;" th:text="${ErrorDate}"></label>
+					<label id="errormsg" style="color: red;" th:text="${ErrorClass}"></label> -->
+					<label
+						style="color: blue" th:text="${Success}"></label><br />
+					<form th:action="addStudent" method="post" th:object="${stuBean}">
+						<table class="tableForm">
+							<tr>
+								<td class="tblSingleLabel">Student No.</td>
+								<td><input type="text" th:field="*{id}" class="txt" /> <label
+									th:if="${#fields.hasErrors('id')}" th:errors="*{id}"
+									style="color: red;">Error</label></td>
+							</tr>
+							<tr>
+								<td class="tblSingleLabel">Student Name *</td>
+								<td><input type="text" th:field="*{name}" class="txt" /> <label
+									th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+									style="color: red;">Error</label></td>
+							</tr>
+
+							<tr>
+								<td class="tblSingleLabel">Class Name *</td>
+								<td class="tblSingleInput"><select id="expenseType"
+									class="normal_sel" th:field="*{className}">
+									<option th:value="ClassName">Choose Class</option>
+										<option th:each="i : ${cList}" th:value="${i}" th:text="${i}"></option>
+								</select></td>
+							</tr>
+							<tr>
+								<td class="tblSingleLabel">Registered Date *</td>
+								<td class="tblSingleInput"><select id="expenseType"
+									class="short_sel" th:field="*{year}">
+										<option th:value="Year">Year</option>
+										<option th:each="i : ${#numbers.sequence(2010, 2099)}"
+											th:text="${i}" th:value="${i}"></option>
+								</select> <select id="expenseType" class="short_sel" th:field="*{month}">
+										<option th:value="Month">Month</option>
+											<option th:each="i : ${#numbers.sequence(1, 9)}"
+											th:text="'0'+${i}" th:value="'0'+${i}"></option>
+											<option th:each="i : ${#numbers.sequence(10, 12)}"
+											th:text="${i}" th:value="${i}"></option>
+								</select> <select id="expenseType" class="short_sel" th:field="*{day}">
+										<option th:value="Day">Day</option>
+										<option th:each="i : ${#numbers.sequence(1, 9)}"
+											th:text="'0'+${i}" th:value="'0'+${i}"></option>
+										<option th:each="i : ${#numbers.sequence(10, 31)}"
+											th:text="${i}" th:value="${i}"></option>
+								</select></td>
+							</tr>
+							<tr>
+								<td class="tblSingleLabel">Status *</td>
+								<td class="tblSingleInput"><select id="expenseType"
+									class="normal_sel" th:field="*{status}">
+										<option th:value="Attending">Attending</option>
+										<option th:value="Passed">Passed</option>
+										<option th:value="Failed">Failed</option>
+								</select></td>
+							</tr>
+
+						</table>
+						<br />
+						<div id="btnGroup">
+							<input type="submit" value="Register" class="button" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+		<span>Copyright &#169; ACE Inspiration 2016</span>
+	</div>
+</body>
+</html>

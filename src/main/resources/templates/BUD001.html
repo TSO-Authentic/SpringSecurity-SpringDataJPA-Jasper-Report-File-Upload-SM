@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>(BUD001)Student Search</title>
+<link rel="stylesheet" type="text/css"
+	th:href="@{/resources/css/base.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/resources/css/container.css}" />
+<script type="text/javascript"
+	th:src="@{/resources/js/accordion-menu.js}"></script>
+<script type="text/javascript" th:src="@{/resources/js/general.js}"></script>
+<style type="text/css">
+tblItems {
+	padding: 10px;
+}
+</style>
+
+<script type="text/javascript">
+	window.onload = function() {
+		menu();
+	}
+</script>
+</head>
+<body class="main_body">
+	<div th:insert="header :: header"></div>
+
+	<div id="container">
+		<div id="left_menu">
+			<!-- menu html code exist the menu function of general.js -->
+		</div>
+		<div id="main_contents">
+			<div id="contents">
+				<div class="search_form">
+					<h3>Student Search Page</h3>
+					<form th:action="searchStudent" method="get"
+						th:object="${sStuBean}">
+						<table class="tableForm">
+							<tr>
+								<td class="tblLabel">Student No.</td>
+								<td class="tblInputShort"><input type="text"
+									name="roleUserGroupCode" th:field="*{stuId}" class="txt" /></td>
+
+
+								<td class="tblLabel">Student Name</td>
+								<td class="tblInputShort"><input type="text"
+									name="roleUserGroupName" th:field="*{stuName}" class="txt" /></td>
+							</tr>
+							<tr>
+								<td class="tblLabel">Class Name</td>
+								<td class="tblInputNormal" colspan="3"><input type="text"
+									id="companyName" th:field="*{className}" class="txtlong" /></td>
+							</tr>
+						</table>
+						<br /> <input type="submit" value="Search" class="button" /> <input
+							type="button" value="Reset"
+							th:onclick="location.href='/user/setupStudentSearch'"
+							class="button" />
+							<input type="button" value="Download PDF"
+							th:onclick="location.href='/user/studentReport'" class="button" style="width:110px;"/>
+							<br /> <br /> <label id="errormsg"
+							th:text="${Error}"></label> <label id="message"
+							style="color: blue;" th:text="${Success}"></label>
+
+					</form>
+					<div id="list">
+						<form name="listForm">
+							<br /> <br />
+							<table class="resultTable">
+								<tr class="tblHeader" th:if="${studentList !=null}">
+									<th width="5%">No</th>
+									<th width="10%">Student No</th>
+									<th width="25%">Student Name</th>
+									<th width="40%">Class Name</th>
+									<th width="10%">Registered Date</th>
+									<th width="10%">Status</th>
+								</tr>
+
+								<tr th:each="studentList:${studentList}" class="tblItems">
+									<td th:text="${studentListStat.index+1}"></td>
+									<td th:text="${studentList.studentId}"></td>
+									<td><a
+										th:href="@{/user/setupUpdateStudent(studentId=${studentList.studentId})}" /><label
+										th:text="${studentList.studentName}"></label></td>
+									<td th:text="${studentList.className}"></td>
+									<td th:text="${studentList.registerDate}"></td>
+									<td th:text="${studentList.status}"></td>
+								</tr>
+
+							</table>
+							<br />
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="footer">
+		<span>Copyright &#169; ACE Inspiration 2016</span>
+	</div>
+</body>
+</html>

@@ -1,0 +1,565 @@
+﻿body{
+	margin:0px;
+	font-family:"ＭＳ Ｐゴシック";
+	font-size:11pt;
+	float:left;
+	text-align:justify;
+    margin-left: auto;
+    margin-right:auto;
+    width: 1366px;
+    height: 100%;
+    overflow:hidden;
+}
+/*Start header css*/
+#header{
+	background:repeat-x;
+	background: linear-gradient(#FACB6E, #FBD892, #FCE5B6, #FDF2DA);
+	width: 100%;
+	height:90px;
+	top:0;
+	position:relative; 
+	color:brown;
+	float: top;
+
+}
+
+#title{
+	position:relative;
+	float:left;
+	top:20px;
+	left:70px;
+	font-size:30px;
+	width:450px;
+
+}
+
+#title a{
+	color: brown;
+}
+
+#menuLoginTime{
+	position:absolute;
+	float:left;
+	top:10px;
+	left:530px;
+	width:450px;
+}
+
+#menuUpdateTime{
+	position:absolute;
+	float:left;
+	top:60px;
+	left:530px;
+	width:450px;
+}
+
+#btn_logout{
+	position:relative;
+	float:right;
+	top:30px;
+	right:50px;
+	font-size:15px;
+	width:80px;
+}
+
+/*End header css*/
+
+/*Start footer css*/
+
+div.clear{
+	clear: both;
+}
+
+div.footer{
+	background: linear-gradient(to top,#FACB6E, #FBD892, #FCE5B6, #FDF2DA);
+	text-align: center;
+	color:brown;
+	float: bottom;
+	height: 20px;
+}
+div.pwcenter{
+	margin-left:20%;
+}
+
+/*End footer css*/
+
+#contents{
+    padding:10px;
+	margin-left: 20px;
+	padding-left:10px;
+	overflow: auto;
+	position:absolute;
+	width: 1100px;
+	top: 90px;
+	bottom: 20px;
+	*width: 600px;
+	*padding-left: 1px;
+	left: 220px;
+}
+
+/*Start Common CSS*/
+
+h3{
+	color : brown;
+}
+
+table.tableForm{
+    border-collapse: collapse;
+    border: 1px solid black;
+    width:80%;
+    align:left;
+}
+table.tableForm td{
+    border: 1px solid black;
+    padding-left: 10px;
+}
+table.tableForm_updprojDev{
+    border-collapse: collapse;
+    border: 1px solid black;
+    width:40%;
+}
+table.tableForm_updprojDev td{
+    border: 1px solid black;
+    padding-left: 10px;
+}
+table.tableForm_manHrPopup{
+    border-collapse: collapse;
+    border: 1px solid black;
+    width:80%;
+}
+table.tableForm_manHrPopup td{
+    border: 1px solid black;
+    /*padding-left: 10px;*/
+    padding:5px 2px 5px 10px;
+}
+
+
+table.resultTable{
+	border-collapse:collapse;
+	margin-bottom:4px;
+	font-size:10pt;
+	width: 80%;
+	text-align: center;
+	vertical-align: center;
+	border: 1px solid black;
+	height: 400px;
+}
+
+table.resultTable th{
+	border: 1px solid black;
+}
+table.resultTable td{
+	border: 1px solid black;
+	content-align:center
+}
+
+.sortName{
+	/*sorting for search list*/
+	color: brown;
+}
+
+.tblLabel{
+	/*for label td in table*/
+	width:15%;
+	background-color:#FDF2DA;
+	color: brown;
+	padding-left: 5px;
+}
+.tblInputNormal{
+	/*for input type td in table*/
+	width: 30%;
+	padding:5px 2px 5px 3px;
+}
+.tblInputShort{
+	width: 15%;
+	padding:5px 2px 5px 3px;
+}
+
+.tblInputLong{
+	width: 45%;
+	padding:5px 2px 5px 3px;
+}
+
+.tblSingleLabel{
+	width:20%;
+	background-color:#FDF2DA;
+	color: brown;
+	padding-left: 5px;
+}
+
+.tblSingleInput{
+	padding:5px 2px 5px 3px;
+	width: 60%;
+}
+
+
+.tblHeader{
+	background-color:#FDF2DA;
+	color: brown;
+	height: 50px;
+}
+
+.button{	
+	width:80px;
+	height:25px;
+	margin-right:2px;
+	margin-bottom:2px;
+	float:left;
+	color: black;
+	background-color: #C0C0C0;
+	-webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.button:hover {	
+	background-color:  	#808080;
+}
+
+.pagination{
+	margin-left:55%;
+}
+
+.txtlong{
+	width:600px;
+}
+
+input.txtvalue{
+	width:150px;
+	text-align: right;
+}
+
+.txtdate{
+	width:150px;
+}
+input.txt{
+	width:180px;
+}
+input.txtpwChange{
+	margin-left:2px;
+	width:150px;
+}
+.txtArea{
+	resize: none;
+	width: 31em;
+    height: 6em;
+}
+
+.long_sel{
+	width:370px;
+}
+.normal_sel{
+	width:185px;
+}
+.short_sel{
+	width:150px;
+}
+
+.sel{
+	/*for multi select box*/
+	margin-left:2px;
+	width:170px;
+	height:100px;
+	margin:5px 2px 5px 2px;
+}
+
+#errormsg{	
+	float:left;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color:#FF0033;
+	position:relative;
+}
+
+#messege{
+	float:left;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: black;
+	position:relative;
+}
+
+.picture_link{
+	text-decoration:none;
+}
+
+/*End Common CSS*/
+
+
+/* -------- Author Hnin Thandar Cho
+   -----------for Project Search------*/
+#lstHeaderColor{
+	background-color:#FDF2DA;
+	color: brown;
+	
+}
+/*--- use for pagination---- */
+#userSearch_Margin{
+	margin-left:83%;
+}
+table.tableUserSearchForm{
+    border-collapse: collapse;
+    border: 1px solid black;
+    color:brown;
+    width: 100%;
+}
+table.tableUserSearchForm td{
+    border: 1px solid black;
+}
+table.userResultTable{
+	border-collapse:collapse;
+	margin-bottom:4px;
+	font-size:10pt;
+	width: 100%;
+	text-align: center;
+	vertical-align: center;
+	border: 1px solid black;
+}
+table.userResultTable td{
+	border: 1px solid black;
+	align:center;
+	padding: 2px 3px;
+}
+
+#btnPlan{
+	width :120px;
+}
+
+.tblLabel_project{
+	width:20%;
+	background-color:#FDF2DA;
+	color: brown;
+	padding-left: 5px;
+}
+
+
+/*  End
+	Project Search css 
+	Author : Khin Yadanar Thein
+*/
+
+/*	Start Man-Month Register CSS
+	Author : Khin Yadanar Thein;
+	*/
+#monthSearchTable{
+	border-collapse:collapse;
+	margin-bottom:4px;
+	font-size:10pt;
+	width: 50%;
+}
+
+#month_search_td{
+	width:25%;
+	background: #FDF2DA;
+	color:brown;
+}
+
+#tblSearch{
+	margin-bottom:4px;
+	border-collapse:collapse;
+	font-size:10pt;
+	align: center;
+}
+
+#tblSearch td{
+	padding-top:3px;
+	padding-bottom:2.5px;
+	padding-left:5px;
+	padding-right:5px;
+}
+
+#footer_text{
+	font-size:11pt;
+	margin-top:3px;
+	margin-right:30px;
+	text-align: right;
+}
+
+.txt_popup{
+	margin:2px;
+	width:190px;
+}
+
+.txtlong_popup{
+	margin:2px;
+	width:350px;
+}
+
+#popup_margin{
+	margin-left: 10%;
+}
+
+#monthTable{
+	border-collapse:collapse;
+	margin-bottom:4px;
+	font-size:10pt;
+	width: 98%;
+}
+
+#monthTable th{
+	border: 1px solid black;
+	width: 5%;
+	background: #FDF2DA;
+	color : brown;
+	text-align: center;
+	height: 50px;
+}
+
+#monthTable td{
+	border: 1px solid black;
+	text-align: center;
+	height: 30px;
+}
+
+/*End Man-Month Register CSS*/
+
+/*	Start Project Master Detail (PRJ010) Popup CSS
+	Author 	: Kyaw Nyi Nyi Htet
+	Date 	: 29-06-2016
+*/
+#headerPopUp{
+	background:repeat-x;
+	background: linear-gradient(#FACB6E, #FBD892, #FCE5B6, #FDF2DA);
+	width: 100%;
+	height:50px;
+	top:0;
+	position:relative; 
+	color:brown;
+	float: top;
+
+}
+
+#contentPopUp{
+	padding: 1px 20px 20px 20px;
+	position:absolute;
+	width:680px;
+	height:530px;
+	overflow:auto;
+}
+
+#footerPopUp{
+	background:repeat-x;
+	background: linear-gradient(to top,#FACB6E, #FBD892, #FCE5B6, #FDF2DA);
+	text-align: center;
+	color:brown;
+	float: bottom;
+	width:750px;
+	height: 20px;
+}
+
+
+table.tableFormPopUp{
+    border-collapse: collapse;
+    border: 1px solid black;
+    width: 100%;
+}
+table.tableFormPopUp td{
+    border: 1px solid black;
+	padding-left: 10px;
+}
+
+
+.tblSingleLabelPopUp{
+	width:20%;
+	background-color:#FDF2DA;
+	color: brown;
+	padding-left: 5px;
+}
+
+.tblSingleInputPopUp{
+	width: 60%;
+	/*padding: 50px;*/
+}
+
+#trHeaderPopUp{
+	height: 30px;
+	color: brown;
+	background-color:#FDF2DA;
+	padding-left: 5px;
+}
+
+.txtareaPopUp{
+	margin: 3px;
+	resize: none;
+	width: 20em;
+    height: 8em;
+}
+/*End Project Master Detail (PRJ010) Popup CSS*/
+
+/*  Start Budget CSS
+	Author : Khin Yadanar Thein
+	Date : 7/1/2016
+	*/
+.txtfix{
+	width: 60px;
+}
+
+.txt_50{
+	width: 610px;
+}
+
+.tableForm_budget{
+	border-collapse: collapse;
+    border: 1px solid black;
+	width: 95%;
+}
+
+.tableForm_budget td{
+	border: 1px solid black;
+    padding: 10px 5px;
+}
+
+.tblLabel_budget{
+	/*for label td in table*/
+	width:15%;
+	background-color:#FDF2DA;
+	color: brown;
+	padding-left: 5px;
+}
+
+.txtlongBudget{
+	width: 500px;
+}
+
+.tblInput_large{
+	/*for input type td in table*/
+	width: 50%;
+}
+
+.tblInput_small{
+	/*for input type td in table*/
+	width: 15%;
+}
+
+#bud_btn{
+	padding:5px;
+}
+/*popup border remove*/
+#removeBorder{
+	border-color: #ffffff; 
+}
+/* End Budget CSS*/
+
+/*Start Password Change (PSW0001) CSS*/
+
+.pswlabel{
+	color: brown;
+}
+
+/*End Password Change (PSW0001) CSS*/
+
+/*Project man-hour delete button*/
+.delbtn{
+	width: 100%;
+}
+
+/* Profile Image */
+.img {
+	border-radius: 50%;
+	width:75px;
+	height:75px;
+	position: absolute;
+	top: 8px;
+	right: 16px;
+	margin-bottom: 10px;
+	margin-right: 400px;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>(BUD002)Student Update</title>
+<link rel="stylesheet" type="text/css"
+	th:href="@{/resources/css/base.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/resources/css/container.css}" />
+<script type="text/javascript"
+	th:src="@{/resources/js/accordion-menu.js}"></script>
+<script type="text/javascript" th:src="@{/resources/js/general.js}"></script>
+<script type="text/javascript">
+	window.onload = function() {
+		menu();
+	}
+
+</script>
+</head>
+<body class="main_body">
+
+	<div th:insert="header :: header"></div>
+	
+	<div id="container">
+		<div id="left_menu">
+			<!-- menu html code exist the menu function of general.js -->
+		</div>
+		<form th:action="studentUpdate" method="post" th:object="${stuBean}">
+		<div id="main_contents">
+			<div id="contents">
+				<div class="search_form">
+					<h3>Student Update</h3>
+					<label style="color: red;" th:text="${Error}"></label> 
+					<label style="color: red;" th:text="${ErrorDate}"></label>
+					<label id="message"
+							style="color: blue;" th:text="${Success}"></label>
+					<br />
+					<br />
+					<table class="tableForm">
+						<tr height="30px">
+							<td class="tblSingleLabel">Student No.</td>
+							<td><input type="text" readonly="readonly" th:field="*{id}" class="txt" />
+							<label th:if="${#fields.hasErrors('id')}" th:errors="*{id}"style="color: red;">Error</label></td>
+						</tr>
+						<tr>
+							<td class="tblSingleLabel">Student Name *</td>
+							<td><input type="text" th:field="*{name}" class="txt" />
+							<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"style="color: red;">Error</label></td>
+						</tr>
+						
+						<tr>
+								<td class="tblSingleLabel">Class Name *</td>
+								<td class="tblSingleInput"><select id="expenseType"
+									class="normal_sel" th:field="*{className}">
+										<option th:each="i : ${cList}" th:value="${i}" th:text="${i}"></option>
+								</select></td>
+							</tr>
+							<tr>
+								<td class="tblSingleLabel">Registered Date *</td>
+								<td class="tblSingleInput"><select id="expenseType"
+									class="short_sel" th:field="*{year}">
+										<option th:value="Year">Year</option>
+										<option th:each="i : ${#numbers.sequence(2010, 2099)}"
+											th:text="${i}" th:value="${i}"></option>
+								</select> <select id="expenseType" class="short_sel" th:field="*{month}">
+										<option th:value="Month">Month</option>
+											<option th:each="i : ${#numbers.sequence(1, 9)}"
+											th:text="'0'+${i}" th:value="'0'+${i}"></option>
+											<option th:each="i : ${#numbers.sequence(10, 12)}"
+											th:text="${i}" th:value="${i}"></option>
+								</select> <select id="expenseType" class="short_sel" th:field="*{day}">
+										<option th:value="Day">Day</option>
+										<option th:each="i : ${#numbers.sequence(1, 9)}"
+											th:text="'0'+${i}" th:value="'0'+${i}"></option>
+										<option th:each="i : ${#numbers.sequence(10, 31)}"
+											th:text="${i}" th:value="${i}"></option>
+								</select></td>
+							</tr>
+							<tr>
+								<td class="tblSingleLabel">Status *</td>
+								<td class="tblSingleInput"><select id="expenseType"
+									class="normal_sel" th:field="*{status}">
+										<option th:value="Attending">Attending</option>
+										<option th:value="Passed">Passed</option>
+										<option th:value="Failed">Failed</option>
+								</select></td>
+							</tr>
+					</table>
+					<br />
+					<div id="btnGroup">
+					<a th:href="@{/user/deleteStudent(id=${stuBean.id})}">
+						<input type="submit" value="Update" class="button" /> <input type="button"
+							value="Delete" id="delete" class="button" /></a>
+							 <input type="button"
+							value="Back" class="button"
+							th:onclick="location.href='/user/setupStudentSearch'"  />
+					</div>
+				</div> 
+			</div>
+		</div>
+		</form>
+	</div>
+
+	<div class="footer">
+		<span>Copyright &#169; ACE Inspiration 2016</span>
+	</div>
+</body>
+</html>
