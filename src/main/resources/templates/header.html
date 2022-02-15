@@ -23,6 +23,7 @@
 				</tr>
 			</table>
 		</div>
+		<img th:src="@{${session.userImg}}" alt="User Photo" class="img"/>
 		<form th:action="@{/logout}" method = "post" >
 				<input id="btn_logout" class="button" type="submit" value="Logout">
 		</form>

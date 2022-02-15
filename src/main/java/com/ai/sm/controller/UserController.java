@@ -218,7 +218,9 @@ public class UserController {
 			} else {
 				uDTO.setImg(uService.findByIdOrName(uDTO.getId(), "").get(0).getImg());
 			}
-
+			uDTO.setRole("ROLE_USER");
+			uDTO.setEnable(1);
+			
 			uService.save(uDTO);
 			List<UserDTO> list = uService.findByIdOrName(uDTO.getId(), uDTO.getName());
 			int i = list.size();
